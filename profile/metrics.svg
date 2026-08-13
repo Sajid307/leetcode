@@ -1,0 +1,86 @@
+<svg
+xmlns="http://www.w3.org/2000/svg"
+width="700"
+height="110"
+viewBox="0 0 700 110">
+
+<rect
+width="700"
+height="110"
+rx="12"
+fill="#0d1117"/>
+
+<text
+x="25"
+y="28"
+fill="#ffffff"
+font-size="16"
+font-family="Arial, sans-serif"
+font-weight="bold">
+🧩 LeetCode Progress
+</text>
+
+<text x="25" y="62"
+fill="#8b949e"
+font-size="12"
+font-family="Arial, sans-serif">
+Problems Solved
+</text>
+
+<text x="25" y="88"
+fill="#ffffff"
+font-size="20"
+font-family="Arial, sans-serif"
+font-weight="bold">
+22
+</text>
+
+
+<text x="190" y="62"
+fill="#8b949e"
+font-size="12"
+font-family="Arial, sans-serif">
+Active Days
+</text>
+
+<text x="190" y="88"
+fill="#ffffff"
+font-size="20"
+font-family="Arial, sans-serif"
+font-weight="bold">
+0
+</text>
+
+
+<text x="350" y="62"
+fill="#8b949e"
+font-size="12"
+font-family="Arial, sans-serif">
+Current Streak
+</text>
+
+<text x="350" y="88"
+fill="#ffffff"
+font-size="20"
+font-family="Arial, sans-serif"
+font-weight="bold">
+🔥 1
+</text>
+
+
+<text x="520" y="62"
+fill="#8b949e"
+font-size="12"
+font-family="Arial, sans-serif">
+Max Streak
+</text>
+
+<text x="520" y="88"
+fill="#ffffff"
+font-size="20"
+font-family="Arial, sans-serif"
+font-weight="bold">
+🏆 2
+</text>
+
+</svg>

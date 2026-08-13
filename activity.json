@@ -1,5 +1,86 @@
 {
   "username": "Sajid-307",
-  "lastUpdated": "",
-  "daily": []
+  "lastUpdated": "2026-08-13T17:37:27.019975+00:00",
+  "daily": [
+    {
+      "date": "2026-08-13",
+      "problems": [
+        {
+          "title": "Longest Substring of One Repeating Character",
+          "slug": "longest-substring-of-one-repeating-character",
+          "language": "java"
+        }
+      ]
+    },
+    {
+      "date": "2026-06-04",
+      "problems": [
+        {
+          "title": "Kids With the Greatest Number of Candies",
+          "slug": "kids-with-the-greatest-number-of-candies",
+          "language": "java"
+        },
+        {
+          "title": "Move Zeroes",
+          "slug": "move-zeroes",
+          "language": "java"
+        }
+      ]
+    },
+    {
+      "date": "2026-06-01",
+      "problems": [
+        {
+          "title": "Add Two Numbers",
+          "slug": "add-two-numbers",
+          "language": "java"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-30",
+      "problems": [
+        {
+          "title": "Maximum Subarray",
+          "slug": "maximum-subarray",
+          "language": "java"
+        },
+        {
+          "title": "Merge Sorted Array",
+          "slug": "merge-sorted-array",
+          "language": "java"
+        },
+        {
+          "title": "Missing Number",
+          "slug": "missing-number",
+          "language": "java"
+        },
+        {
+          "title": "Subarray Sum Equals K",
+          "slug": "subarray-sum-equals-k",
+          "language": "java"
+        },
+        {
+          "title": "Two Sum",
+          "slug": "two-sum",
+          "language": "java"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-29",
+      "problems": [
+        {
+          "title": "Maximum Subarray",
+          "slug": "maximum-subarray",
+          "language": "java"
+        },
+        {
+          "title": "Palindromic Substrings",
+          "slug": "palindromic-substrings",
+          "language": "java"
+        }
+      ]
+    }
+  ]
 }

@@ -12,10 +12,10 @@ HEADERS = {
 }
 
 
-def graphql(query, variables):
+def graphql(query, variables=None):
     payload = json.dumps({
         "query": query,
-        "variables": variables
+        "variables": variables or {}
     }).encode("utf-8")
 
     request = urllib.request.Request(
@@ -25,16 +25,23 @@ def graphql(query, variables):
     )
 
     with urllib.request.urlopen(request, timeout=30) as response:
-        return json.loads(response.read().decode("utf-8"))
+        result = json.loads(
+            response.read().decode("utf-8")
+        )
+
+    if result.get("errors"):
+        raise RuntimeError(
+            json.dumps(result["errors"], indent=2)
+        )
+
+    return result
 
 
-# ---------------------------------------------------------
-# 1. Fetch profile statistics
-# ---------------------------------------------------------
-
-PROFILE_QUERY = """
+QUERY = """
 query userProfile($username: String!) {
+
   matchedUser(username: $username) {
+
     username
 
     profile {
@@ -49,63 +56,13 @@ query userProfile($username: String!) {
         submissions
       }
     }
+
+    submissionCalendar
   }
-}
-"""
 
-profile_data = graphql(
-    PROFILE_QUERY,
-    {"username": USERNAME}
-)
-
-user = profile_data.get("data", {}).get("matchedUser")
-
-if not user:
-    raise RuntimeError(
-        f"Unable to find LeetCode user: {USERNAME}"
-    )
-
-
-stats = {}
-
-for item in user["submitStats"]["acSubmissionNum"]:
-    stats[item["difficulty"]] = {
-        "count": item["count"],
-        "submissions": item["submissions"]
-    }
-
-
-# ---------------------------------------------------------
-# 2. Save statistics
-# ---------------------------------------------------------
-
-stats_result = {
-    "username": USERNAME,
-    "lastUpdated": datetime.now(timezone.utc).isoformat(),
-    "ranking": user["profile"]["ranking"],
-    "stats": stats
-}
-
-with open("stats.json", "w", encoding="utf-8") as file:
-    json.dump(
-        stats_result,
-        file,
-        indent=2
-    )
-
-
-# ---------------------------------------------------------
-# 3. Fetch recent submissions
-# ---------------------------------------------------------
-
-SUBMISSIONS_QUERY = """
-query recentAcSubmissions(
-    $username: String!,
-    $limit: Int!
-) {
   recentAcSubmissionList(
-    username: $username,
-    limit: $limit
+    username: $username
+    limit: 20
   ) {
     id
     title
@@ -116,24 +73,109 @@ query recentAcSubmissions(
 }
 """
 
-submission_data = graphql(
-    SUBMISSIONS_QUERY,
+
+data = graphql(
+    QUERY,
     {
-        "username": USERNAME,
-        "limit": 20
+        "username": USERNAME
     }
 )
 
+user = (
+    data
+    .get("data", {})
+    .get("matchedUser")
+)
+
+if not user:
+    raise RuntimeError(
+        f"Unable to find LeetCode user: {USERNAME}"
+    )
+
+
+# =========================================================
+# Statistics
+# =========================================================
+
+stats = {}
+
+for item in user["submitStats"]["acSubmissionNum"]:
+
+    stats[item["difficulty"]] = {
+        "count": item["count"],
+        "submissions": item["submissions"]
+    }
+
+
+stats_result = {
+    "username": USERNAME,
+    "lastUpdated": datetime.now(
+        timezone.utc
+    ).isoformat(),
+    "ranking": user["profile"]["ranking"],
+    "stats": stats
+}
+
+
+with open(
+    "stats.json",
+    "w",
+    encoding="utf-8"
+) as file:
+
+    json.dump(
+        stats_result,
+        file,
+        indent=2
+    )
+
+
+# =========================================================
+# Submission Calendar
+# =========================================================
+
+calendar_raw = user.get(
+    "submissionCalendar"
+)
+
+if calendar_raw:
+    calendar = json.loads(calendar_raw)
+else:
+    calendar = {}
+
+
+calendar_result = {
+    "username": USERNAME,
+    "lastUpdated": datetime.now(
+        timezone.utc
+    ).isoformat(),
+    "calendar": calendar
+}
+
+
+with open(
+    "calendar.json",
+    "w",
+    encoding="utf-8"
+) as file:
+
+    json.dump(
+        calendar_result,
+        file,
+        indent=2
+    )
+
+
+# =========================================================
+# Recent Accepted Problems
+# =========================================================
+
 submissions = (
-    submission_data
+    data
     .get("data", {})
     .get("recentAcSubmissionList", [])
 )
 
-
-# ---------------------------------------------------------
-# 4. Load existing activity
-# ---------------------------------------------------------
 
 activity_file = "activity.json"
 
@@ -144,6 +186,7 @@ if os.path.exists(activity_file):
         "r",
         encoding="utf-8"
     ) as file:
+
         activity = json.load(file)
 
 else:
@@ -155,20 +198,19 @@ else:
     }
 
 
-# ---------------------------------------------------------
-# 5. Group submissions by date
-# ---------------------------------------------------------
-
 daily_map = {
     entry["date"]: entry
     for entry in activity.get("daily", [])
 }
 
+
 for submission in submissions:
 
-    timestamp = int(submission["timestamp"])
+    timestamp = int(
+        submission["timestamp"]
+    )
 
-    date = datetime.fromtimestamp(
+    submitted_date = datetime.fromtimestamp(
         timestamp,
         tz=timezone.utc
     ).strftime("%Y-%m-%d")
@@ -179,43 +221,41 @@ for submission in submissions:
         "language": submission["lang"]
     }
 
-    if date not in daily_map:
+    if submitted_date not in daily_map:
 
-        daily_map[date] = {
-            "date": date,
+        daily_map[submitted_date] = {
+            "date": submitted_date,
             "problems": []
         }
 
-    existing = daily_map[date]["problems"]
+    problems = daily_map[
+        submitted_date
+    ]["problems"]
 
-    # Avoid duplicate submissions
     if not any(
         p["slug"] == problem["slug"]
-        for p in existing
+        for p in problems
     ):
-        existing.append(problem)
+        problems.append(problem)
 
 
-# ---------------------------------------------------------
-# 6. Sort activity
-# ---------------------------------------------------------
+daily = list(
+    daily_map.values()
+)
 
-daily = list(daily_map.values())
 
 for entry in daily:
+
     entry["problems"].sort(
-        key=lambda p: p["title"]
+        key=lambda x: x["title"]
     )
+
 
 daily.sort(
     key=lambda x: x["date"],
     reverse=True
 )
 
-
-# ---------------------------------------------------------
-# 7. Save activity
-# ---------------------------------------------------------
 
 activity_result = {
     "username": USERNAME,
@@ -224,6 +264,7 @@ activity_result = {
     ).isoformat(),
     "daily": daily
 }
+
 
 with open(
     activity_file,
@@ -238,6 +279,10 @@ with open(
     )
 
 
-print("LeetCode statistics updated.")
-print(f"Recent accepted submissions: {len(submissions)}")
-print(f"Tracked days: {len(daily)}")
+print("===================================")
+print("LeetCode update completed")
+print("===================================")
+print(f"Username: {USERNAME}")
+print(f"Recent accepted: {len(submissions)}")
+print(f"Calendar days: {len(calendar)}")
+print(f"Tracked activity days: {len(daily)}")

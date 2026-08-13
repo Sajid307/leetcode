@@ -1,4 +1,4 @@
-## 🧩 Recent LeetCode Problems
+# 🧩 Recent LeetCode Problems
 
 - **[Longest Substring of One Repeating Character](https://leetcode.com/problems/longest-substring-of-one-repeating-character/)** — `java` · `2026-08-13`
 - **[Kids With the Greatest Number of Candies](https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/)** — `java` · `2026-06-04`

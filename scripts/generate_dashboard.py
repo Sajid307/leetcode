@@ -1,5 +1,7 @@
 import json
-from datetime import datetime
+import re
+
+PROFILE_README = "../Sajid307/README.md"
 
 with open(
     "activity.json",
@@ -10,15 +12,9 @@ with open(
     activity = json.load(file)
 
 
-daily = activity.get(
-    "daily",
-    []
-)
-
-
 recent = []
 
-for entry in daily:
+for entry in activity.get("daily", []):
 
     for problem in entry.get(
         "problems",
@@ -39,46 +35,83 @@ recent.sort(
 )
 
 
-recent = recent[:10]
+recent = recent[:8]
+
+
+lines = [
+    "### 🧠 Recent Problems",
+    "",
+    "<!-- LEETCODE:START -->",
+    ""
+]
+
+
+if recent:
+
+    for problem in recent:
+
+        title = problem["title"]
+        slug = problem["slug"]
+        language = problem["language"]
+        date = problem["date"]
+
+        url = (
+            "https://leetcode.com/problems/"
+            f"{slug}/"
+        )
+
+        lines.append(
+            f"- [{title}]({url}) "
+            f"— `{language}` · `{date}`"
+        )
+
+else:
+
+    lines.append(
+        "No recent problems tracked yet."
+    )
+
+
+lines.extend([
+    "",
+    "<!-- LEETCODE:END -->"
+])
+
+
+new_section = "\n".join(lines)
 
 
 with open(
-    "profile/recent-problems.md",
+    PROFILE_README,
+    "r",
+    encoding="utf-8"
+) as file:
+
+    readme = file.read()
+
+
+pattern = (
+    r"### 🧠 Recent Problems"
+    r".*?"
+    r"<!-- LEETCODE:END -->"
+)
+
+
+updated = re.sub(
+    pattern,
+    new_section,
+    readme,
+    flags=re.DOTALL
+)
+
+
+with open(
+    PROFILE_README,
     "w",
     encoding="utf-8"
 ) as file:
 
-    file.write(
-        "## 🧩 Recent LeetCode Problems\n\n"
-    )
-
-    if not recent:
-
-        file.write(
-            "No recent problems tracked yet.\n"
-        )
-
-    else:
-
-        for problem in recent:
-
-            title = problem["title"]
-            slug = problem["slug"]
-            date = problem["date"]
-            language = problem["language"]
-
-            url = (
-                "https://leetcode.com/problems/"
-                f"{slug}/"
-            )
-
-            file.write(
-                f"- **[{title}]({url})** — "
-                f"`{language}` · `{date}`\n"
-            )
+    file.write(updated)
 
 
-print(
-    f"Generated recent-problems.md "
-    f"with {len(recent)} problems."
-)
+print("Updated profile README.")

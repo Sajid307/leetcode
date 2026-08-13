@@ -22,18 +22,18 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Fetch LeetCode statistics
+      - name: Update LeetCode data
         run: |
           python scripts/update_leetcode.py
 
-      - name: Commit statistics
+      - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add stats.json
+          git add stats.json activity.json
 
           git diff --cached --quiet || \
-            git commit -m "chore: update LeetCode stats"
+            git commit -m "chore: update LeetCode progress"
 
           git push

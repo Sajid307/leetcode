@@ -1,7 +1,62 @@
 {
   "username": "Sajid-307",
-  "lastUpdated": "2026-08-18T19:06:07.289905+00:00",
+  "lastUpdated": "2026-08-19T17:42:01.614024+00:00",
   "daily": [
+    {
+      "date": "2026-08-19",
+      "problems": [
+        {
+          "title": "Cinema Seat Allocation",
+          "slug": "cinema-seat-allocation",
+          "language": "java"
+        },
+        {
+          "title": "Find the Largest Almost Missing Integer",
+          "slug": "find-the-largest-almost-missing-integer",
+          "language": "java"
+        },
+        {
+          "title": "Length of Longest Subarray With at Most K Frequency",
+          "slug": "length-of-longest-subarray-with-at-most-k-frequency",
+          "language": "java"
+        },
+        {
+          "title": "Longest Subsequence With Non-Zero Bitwise XOR",
+          "slug": "longest-subsequence-with-non-zero-bitwise-xor",
+          "language": "java"
+        },
+        {
+          "title": "Maximum Length Substring With Two Occurrences",
+          "slug": "maximum-length-substring-with-two-occurrences",
+          "language": "java"
+        },
+        {
+          "title": "Smallest Missing Integer Greater Than Sequential Prefix Sum",
+          "slug": "smallest-missing-integer-greater-than-sequential-prefix-sum",
+          "language": "java"
+        },
+        {
+          "title": "Stone Game II",
+          "slug": "stone-game-ii",
+          "language": "java"
+        },
+        {
+          "title": "Stone Game IV",
+          "slug": "stone-game-iv",
+          "language": "java"
+        },
+        {
+          "title": "Stone Game IX",
+          "slug": "stone-game-ix",
+          "language": "java"
+        },
+        {
+          "title": "Stone Game V",
+          "slug": "stone-game-v",
+          "language": "java"
+        }
+      ]
+    },
     {
       "date": "2026-08-13",
       "problems": [

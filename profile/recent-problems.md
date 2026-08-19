@@ -1,12 +1,12 @@
 # 🧩 Recent LeetCode Problems
 
-- **[Longest Substring of One Repeating Character](https://leetcode.com/problems/longest-substring-of-one-repeating-character/)** — `java` · `2026-08-13`
-- **[Kids With the Greatest Number of Candies](https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/)** — `java` · `2026-06-04`
-- **[Move Zeroes](https://leetcode.com/problems/move-zeroes/)** — `java` · `2026-06-04`
-- **[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)** — `java` · `2026-06-01`
-- **[Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)** — `java` · `2026-05-30`
-- **[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)** — `java` · `2026-05-30`
-- **[Missing Number](https://leetcode.com/problems/missing-number/)** — `java` · `2026-05-30`
-- **[Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/)** — `java` · `2026-05-30`
-- **[Two Sum](https://leetcode.com/problems/two-sum/)** — `java` · `2026-05-30`
-- **[Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)** — `java` · `2026-05-29`
+- **[Cinema Seat Allocation](https://leetcode.com/problems/cinema-seat-allocation/)** — `java` · `2026-08-19`
+- **[Find the Largest Almost Missing Integer](https://leetcode.com/problems/find-the-largest-almost-missing-integer/)** — `java` · `2026-08-19`
+- **[Length of Longest Subarray With at Most K Frequency](https://leetcode.com/problems/length-of-longest-subarray-with-at-most-k-frequency/)** — `java` · `2026-08-19`
+- **[Longest Subsequence With Non-Zero Bitwise XOR](https://leetcode.com/problems/longest-subsequence-with-non-zero-bitwise-xor/)** — `java` · `2026-08-19`
+- **[Maximum Length Substring With Two Occurrences](https://leetcode.com/problems/maximum-length-substring-with-two-occurrences/)** — `java` · `2026-08-19`
+- **[Smallest Missing Integer Greater Than Sequential Prefix Sum](https://leetcode.com/problems/smallest-missing-integer-greater-than-sequential-prefix-sum/)** — `java` · `2026-08-19`
+- **[Stone Game II](https://leetcode.com/problems/stone-game-ii/)** — `java` · `2026-08-19`
+- **[Stone Game IV](https://leetcode.com/problems/stone-game-iv/)** — `java` · `2026-08-19`
+- **[Stone Game IX](https://leetcode.com/problems/stone-game-ix/)** — `java` · `2026-08-19`
+- **[Stone Game V](https://leetcode.com/problems/stone-game-v/)** — `java` · `2026-08-19`

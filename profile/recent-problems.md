@@ -1,5 +1,6 @@
 # 🧩 Recent LeetCode Problems
 
+- **[Reverse Integer](https://leetcode.com/problems/reverse-integer/)** — `java` · `2026-08-31`
 - **[Distribute Elements Into Two Arrays I](https://leetcode.com/problems/distribute-elements-into-two-arrays-i/)** — `java` · `2026-08-20`
 - **[Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)** — `java` · `2026-08-20`
 - **[Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)** — `java` · `2026-08-20`
@@ -9,4 +10,3 @@
 - **[Length of Longest Subarray With at Most K Frequency](https://leetcode.com/problems/length-of-longest-subarray-with-at-most-k-frequency/)** — `java` · `2026-08-19`
 - **[Longest Subsequence With Non-Zero Bitwise XOR](https://leetcode.com/problems/longest-subsequence-with-non-zero-bitwise-xor/)** — `java` · `2026-08-19`
 - **[Maximum Length Substring With Two Occurrences](https://leetcode.com/problems/maximum-length-substring-with-two-occurrences/)** — `java` · `2026-08-19`
-- **[Smallest Missing Integer Greater Than Sequential Prefix Sum](https://leetcode.com/problems/smallest-missing-integer-greater-than-sequential-prefix-sum/)** — `java` · `2026-08-19`

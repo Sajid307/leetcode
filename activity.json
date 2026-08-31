@@ -1,7 +1,17 @@
 {
   "username": "Sajid-307",
-  "lastUpdated": "2026-08-30T21:19:39.652980+00:00",
+  "lastUpdated": "2026-08-31T22:57:08.265213+00:00",
   "daily": [
+    {
+      "date": "2026-08-31",
+      "problems": [
+        {
+          "title": "Reverse Integer",
+          "slug": "reverse-integer",
+          "language": "java"
+        }
+      ]
+    },
     {
       "date": "2026-08-20",
       "problems": [

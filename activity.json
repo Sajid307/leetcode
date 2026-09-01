@@ -1,7 +1,22 @@
 {
   "username": "Sajid-307",
-  "lastUpdated": "2026-08-31T22:57:08.265213+00:00",
+  "lastUpdated": "2026-09-01T21:11:01.196891+00:00",
   "daily": [
+    {
+      "date": "2026-09-01",
+      "problems": [
+        {
+          "title": "Palindrome Number",
+          "slug": "palindrome-number",
+          "language": "java"
+        },
+        {
+          "title": "String to Integer (atoi)",
+          "slug": "string-to-integer-atoi",
+          "language": "java"
+        }
+      ]
+    },
     {
       "date": "2026-08-31",
       "problems": [

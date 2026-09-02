@@ -1,7 +1,27 @@
 {
   "username": "Sajid-307",
-  "lastUpdated": "2026-09-01T21:11:01.196891+00:00",
+  "lastUpdated": "2026-09-02T21:10:56.955731+00:00",
   "daily": [
+    {
+      "date": "2026-09-02",
+      "problems": [
+        {
+          "title": "Container With Most Water",
+          "slug": "container-with-most-water",
+          "language": "java"
+        },
+        {
+          "title": "Integer to Roman",
+          "slug": "integer-to-roman",
+          "language": "java"
+        },
+        {
+          "title": "Roman to Integer",
+          "slug": "roman-to-integer",
+          "language": "java"
+        }
+      ]
+    },
     {
       "date": "2026-09-01",
       "problems": [

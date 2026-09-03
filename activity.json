@@ -1,7 +1,32 @@
 {
   "username": "Sajid-307",
-  "lastUpdated": "2026-09-02T21:10:56.955731+00:00",
+  "lastUpdated": "2026-09-03T21:11:10.427965+00:00",
   "daily": [
+    {
+      "date": "2026-09-03",
+      "problems": [
+        {
+          "title": "3Sum",
+          "slug": "3sum",
+          "language": "java"
+        },
+        {
+          "title": "3Sum Closest",
+          "slug": "3sum-closest",
+          "language": "java"
+        },
+        {
+          "title": "Letter Combinations of a Phone Number",
+          "slug": "letter-combinations-of-a-phone-number",
+          "language": "java"
+        },
+        {
+          "title": "Longest Common Prefix",
+          "slug": "longest-common-prefix",
+          "language": "java"
+        }
+      ]
+    },
     {
       "date": "2026-09-02",
       "problems": [

@@ -1,7 +1,32 @@
 {
   "username": "Sajid-307",
-  "lastUpdated": "2026-09-03T21:11:10.427965+00:00",
+  "lastUpdated": "2026-09-04T20:53:58.197172+00:00",
   "daily": [
+    {
+      "date": "2026-09-04",
+      "problems": [
+        {
+          "title": "4Sum",
+          "slug": "4sum",
+          "language": "java"
+        },
+        {
+          "title": "Merge Two Sorted Lists",
+          "slug": "merge-two-sorted-lists",
+          "language": "java"
+        },
+        {
+          "title": "Remove Nth Node From End of List",
+          "slug": "remove-nth-node-from-end-of-list",
+          "language": "java"
+        },
+        {
+          "title": "Valid Parentheses",
+          "slug": "valid-parentheses",
+          "language": "java"
+        }
+      ]
+    },
     {
       "date": "2026-09-03",
       "problems": [

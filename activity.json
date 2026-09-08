@@ -1,7 +1,27 @@
 {
   "username": "Sajid-307",
-  "lastUpdated": "2026-09-07T21:38:49.720149+00:00",
+  "lastUpdated": "2026-09-08T21:17:49.378543+00:00",
   "daily": [
+    {
+      "date": "2026-09-08",
+      "problems": [
+        {
+          "title": "Remove Duplicates from Sorted Array",
+          "slug": "remove-duplicates-from-sorted-array",
+          "language": "java"
+        },
+        {
+          "title": "Remove Element",
+          "slug": "remove-element",
+          "language": "java"
+        },
+        {
+          "title": "Reverse Nodes in k-Group",
+          "slug": "reverse-nodes-in-k-group",
+          "language": "java"
+        }
+      ]
+    },
     {
       "date": "2026-09-07",
       "problems": [
